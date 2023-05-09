@@ -47,7 +47,7 @@
     <q-footer class="bg-primary text-white">
       <q-toolbar>
         <q-toolbar-title>
-          &copy; {{ new Date().getFullYear() }} TreeScape
+          &copy; {{ new Date().getFullYear() }} Mathijs de Bruin
         </q-toolbar-title>
         <q-space />
         <div class="footer-links">
