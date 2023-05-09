@@ -1,34 +1,61 @@
 <template>
   <q-page padding class="ai-assistance">
     <h2>AI Assistance</h2>
-    <p>
-      Our AI is generating suggestions and guidance based on your input and
-      data:
-    </p>
-    <div class="conversation">
-      <div v-for="(message, index) in messages" :key="index" class="message">
-        <q-chat-message
-          v-if="message.type === 'ai'"
-          :text="message.content"
-          name="AI"
-          sent="true"
-          avatar="/path/to/avatar"
-        ></q-chat-message>
-        <div v-if="message.options" class="user-options">
-          <q-btn
-            v-for="(option, optionIndex) in message.options"
-            :key="optionIndex"
-            :label="option.label"
-            color="secondary"
-            text-color="white"
-            class="q-mr-xs q-mb-xs"
-            @click="handleOptionClick(option.value)"
-          />
+    <div v-if="!showSummary">
+      <p>
+        Our AI is generating suggestions and guidance based on your input and
+        data:
+      </p>
+      <div class="conversation">
+        <div v-for="(message, index) in messages" :key="index" class="message">
+          <q-chat-message
+            v-if="message.type === 'ai'"
+            :text="[message.content]"
+            name="AI"
+            :sent="true"
+            avatar="~assets/logo.svg"
+          ></q-chat-message>
+          <div v-if="message.options" class="user-options">
+            <q-btn
+              v-for="(option, optionIndex) in message.options"
+              :key="optionIndex"
+              :label="option.label"
+              color="secondary"
+              text-color="white"
+              class="q-mr-xs q-mb-xs"
+              @click="handleOptionClick(option.value)"
+            />
+          </div>
         </div>
       </div>
     </div>
     <div class="summary" v-if="showSummary">
-      <!-- Add summary card content here -->
+      <h3>Design Requirements</h3>
+      <p>
+        Based on your input and our AI's suggestions, here are the design
+        requirements for your forest:
+      </p>
+      <ul>
+        <li v-for="(item, index) in designRequirements" :key="index">
+          {{ item }}
+        </li>
+      </ul>
+      <div class="summary-actions">
+        <q-btn
+          label="Edit"
+          color="secondary"
+          text-color="white"
+          class="q-mr-xs q-mb-xs"
+          @click="editRequirements"
+        />
+        <q-btn
+          label="Ask More Questions"
+          color="secondary"
+          text-color="white"
+          class="q-mr-xs q-mb-xs"
+          @click="askMoreQuestions"
+        />
+      </div>
     </div>
     <div class="navigation-buttons">
       <q-btn
@@ -41,7 +68,7 @@
         label="Next"
         color="primary"
         :to="{ name: 'InteractiveDesign' }"
-        :disabled="!showSummary"
+        :disable="!showSummary"
       />
     </div>
   </q-page>
@@ -74,6 +101,25 @@ export default defineComponent({
   setup() {
     const messages = ref<Message[]>([]);
     const showSummary = ref<boolean>(false);
+    const designRequirements = ref([
+      'Tree Density: Medium',
+      'Species Diversity: High',
+      'Primary Species: Oak, Pine, Maple',
+      'Secondary Species: Birch, Cherry, Walnut',
+      'Understory Species: Hazelnut, Serviceberry, Blackberry',
+      'Wildlife Habitat Features: Snag Trees, Brush Piles, Nesting Boxes',
+      'Carbon Sequestration: Optimized for Maximum Storage',
+      'Erosion Control: Groundcovers and Deep-Rooted Trees',
+      'Water Management: Swales and Contour Planting',
+    ]); // A list of design requirements based on the conversation
+
+    const editRequirements = () => {
+      // Implement the logic for editing design requirements
+    };
+
+    const askMoreQuestions = () => {
+      // Implement the logic for asking more questions
+    };
 
     function handleOptionClick(value: string) {
       if (value === 'correct') {
@@ -132,6 +178,11 @@ export default defineComponent({
 
     return {
       messages,
+      handleOptionClick,
+      showSummary,
+      designRequirements,
+      editRequirements,
+      askMoreQuestions,
     };
   },
 });
