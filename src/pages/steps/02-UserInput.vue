@@ -51,7 +51,13 @@
         multiple
       />
 
-      <div class="buttons">
+      <div class="navigation-buttons">
+        <q-btn
+          label="Previous"
+          color="primary"
+          outline
+          :to="{ name: 'LandingPage' }"
+        />
         <q-btn label="Next" color="primary" type="submit" />
       </div>
     </q-form>
@@ -126,5 +132,10 @@ export default defineComponent({
   margin-top: 1rem;
   display: flex;
   justify-content: flex-end;
+}
+.navigation-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
 }
 </style>

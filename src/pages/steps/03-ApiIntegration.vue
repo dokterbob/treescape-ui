@@ -4,24 +4,82 @@
     <p>
       Gathering data from open APIs and datasets to inform your forest design:
     </p>
-    <!-- Add progress indicators, such as q-linear-progress or q-spinner, to show data fetching progress -->
-    <q-btn label="Next" color="primary" :to="{ name: 'AiAssistance' }" />
+    <div class="api-list">
+      <div class="api-item" v-for="(api, index) in apis" :key="index">
+        <h3>{{ api.name }}</h3>
+        <p>{{ api.description }}</p>
+        <q-linear-progress
+          :value="api.progress"
+          buffer
+          color="primary"
+          :style="{ width: '100%' }"
+        />
+      </div>
+    </div>
+    <div class="navigation-buttons">
+      <q-btn
+        label="Previous"
+        color="primary"
+        outline
+        :to="{ name: 'UserInput' }"
+      />
+      <q-btn label="Next" color="primary" :to="{ name: 'AiAssistance' }" />
+    </div>
   </q-page>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, ref, onMounted } from 'vue';
 
 export default defineComponent({
   name: 'ApiIntegration',
   setup() {
-    // Your TypeScript code goes here
+    const apis = ref([
+      {
+        name: 'Climate Data API',
+        description:
+          'Fetching climate data for the selected location to inform species selection and planting strategies.',
+        progress: 0,
+      },
+      {
+        name: 'Soil Data API',
+        description:
+          'Retrieving soil information for the selected location to determine appropriate species and planting techniques.',
+        progress: 0,
+      },
+      // Add more APIs and datasets as needed
+    ]);
+
+    function fetchData(apiIndex: number) {
+      if (apis.value[apiIndex].progress < 100) {
+        apis.value[apiIndex].progress += 10;
+        setTimeout(() => fetchData(apiIndex), 500);
+      }
+    }
+
+    onMounted(() => {
+      apis.value.forEach((_api, index) => {
+        fetchData(index);
+      });
+    });
+
+    return { apis };
   },
 });
 </script>
 
 <style lang="scss" scoped>
 .api-integration {
-  // Your SCSS styles go here
+  .api-list {
+    .api-item {
+      margin-bottom: 1rem;
+    }
+  }
+
+  .navigation-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+  }
 }
 </style>
