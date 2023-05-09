@@ -121,7 +121,15 @@
       </q-card>
     </div>
 
-    <q-btn label="Next" color="primary" :to="{ name: 'ResultExport' }" />
+    <div class="navigation-buttons">
+      <q-btn
+        label="Previous"
+        color="primary"
+        outline
+        :to="{ name: 'InteractiveDesign' }"
+      />
+      <q-btn label="Next" color="primary" :to="{ name: 'ResultExport' }" />
+    </div>
   </q-page>
 </template>
 
@@ -154,6 +162,10 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 .design-evaluation {
-  // Your SCSS styles go here
+  .navigation-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+  }
 }
 </style>

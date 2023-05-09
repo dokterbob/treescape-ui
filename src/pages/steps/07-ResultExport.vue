@@ -132,7 +132,14 @@
       </q-card>
     </q-dialog>
 
-    <!-- <q-btn label="Finish" color="primary" :to="{ name: 'Landing' }" /> -->
+    <div class="navigation-buttons">
+      <q-btn
+        label="Previous"
+        color="primary"
+        outline
+        :to="{ name: 'PerformanceEvaluation' }"
+      />
+    </div>
   </q-page>
 </template>
 <script lang="ts">
@@ -238,6 +245,11 @@ export default defineComponent({
 .export {
   .q-btn-dropdown {
     margin-top: 10px;
+  }
+  .navigation-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
   }
 }
 </style>
