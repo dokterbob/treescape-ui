@@ -1,12 +1,12 @@
 <template>
-  <div class="api-integration">
+  <q-page padding class="api-integration">
     <h2>API Integration</h2>
     <p>
       Gathering data from open APIs and datasets to inform your forest design:
     </p>
     <!-- Add progress indicators, such as q-linear-progress or q-spinner, to show data fetching progress -->
     <q-btn label="Next" color="primary" :to="{ name: 'AiAssistance' }" />
-  </div>
+  </q-page>
 </template>
 
 <script lang="ts">

@@ -1,10 +1,23 @@
+<!-- User Input for Forest design wizard using the Quasar framework -->
 <template>
-  <div class="user-input">
+  <q-page padding class="user-input">
     <h2>User Input</h2>
     <p>Provide your location, economic goals, and other preferences:</p>
-    <!-- Add form elements for user input here, such as q-input, q-select, etc. -->
+
+    <!-- Map-based input for location and land boundaries. -->
+    <!-- SVG mockup of map component for now -->
+
+    <!-- Form field(s) for economic goals
+    -->
+
+    <!-- Form field(s) for existing vegetation
+    -->
+
+    <!-- Form field(s) for desired species -->
+
+    <!-- Form field(s) for desired goals -->
     <q-btn label="Next" color="primary" :to="{ name: 'ApiIntegration' }" />
-  </div>
+  </q-page>
 </template>
 
 <script lang="ts">

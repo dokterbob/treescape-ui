@@ -1,5 +1,5 @@
 <template>
-  <div class="ai-assistance">
+  <q-page padding class="ai-assistance">
     <h2>AI Assistance</h2>
     <p>
       Our AI is generating suggestions and guidance based on your input and
@@ -7,7 +7,7 @@
     </p>
     <!-- Add content to display AI suggestions, such as a list or cards -->
     <q-btn label="Next" color="primary" :to="{ name: 'InteractiveDesign' }" />
-  </div>
+  </q-page>
 </template>
 
 <script lang="ts">

@@ -1,12 +1,16 @@
 <template>
-  <div class="interactive-design">
+  <q-page padding class="interactive-design">
     <h2>Interactive Design</h2>
     <p>
       Create your custom agroforestry system using our interactive design tool:
     </p>
     <!-- Add interactive design elements, such as a canvas or draggable components -->
-    <q-btn label="Next" color="primary" :to="{ name: 'Evaluation' }" />
-  </div>
+    <q-btn
+      label="Next"
+      color="primary"
+      :to="{ name: 'PerformanceEvaluation' }"
+    />
+  </q-page>
 </template>
 
 <script lang="ts">

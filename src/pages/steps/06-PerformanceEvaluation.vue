@@ -1,10 +1,10 @@
 <template>
-  <div class="evaluation">
+  <q-page padding class="evaluation">
     <h2>Evaluation</h2>
     <p>Review the ecological and economic performance of your design:</p>
     <!-- Add elements to display evaluation results, such as charts or tables -->
-    <q-btn label="Next" color="primary" :to="{ name: 'Export' }" />
-  </div>
+    <q-btn label="Next" color="primary" :to="{ name: 'ResultExport' }" />
+  </q-page>
 </template>
 
 <script lang="ts">
