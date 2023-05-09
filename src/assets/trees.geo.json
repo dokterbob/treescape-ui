@@ -1,0 +1,29 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "species": "Quercus robur",
+        "variety": "Fastigiate Koster",
+        "common_name": "English Oak"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-2.215, 54.2816]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "species": "Quercus robur",
+        "variety": "Fastigiate Koster",
+        "common_name": "English Oak"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-2.2149, 54.2815]
+      }
+    }
+  ]
+}

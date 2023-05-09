@@ -1,0 +1,29 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "species": "Corylus avellana",
+        "variety": "Contorta",
+        "common_name": "Corkscrew Hazel"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-2.2151, 54.2817]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "species": "Corylus avellana",
+        "variety": "Contorta",
+        "common_name": "Corkscrew Hazel"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-2.215, 54.2814]
+      }
+    }
+  ]
+}
